@@ -1,22 +1,11 @@
 import { useState } from 'react';
 import { NavLink, Routes, Route } from 'react-router-dom';
-
-const Todo = () => {
-  return <p>這是 Todo 頁面</p>;
-};
-const Login = () => {
-  return <p>這是登入頁面</p>;
-};
-const Register = () => {
-  return <p>這是註冊頁面</p>;
-};
-const Home = () => {
-  return <p>這是首頁</p>;
-};
+import { Home } from './views/Home';
+import { Login } from './views/Login';
+import { Register } from './views/Register';
+import { Todo } from './views/Todo';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className="App">
       <div className="nav-link">
