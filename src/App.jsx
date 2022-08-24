@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { NavLink, Routes, Route } from 'react-router-dom';
 import { Home } from './views/Home';
 import { Login } from './views/Login';
+import { Post } from './views/Post';
+import { PostDetail } from './views/PostDetail';
 import { Register } from './views/Register';
 import { Todo } from './views/Todo';
 
@@ -21,12 +23,18 @@ function App() {
         <NavLink to="/todo">
           <p>Todo 頁面</p>
         </NavLink>
+        <NavLink to="/post">
+          <p>Post 頁面</p>
+        </NavLink>
       </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/todo" element={<Todo />} />
+        <Route path="/post" element={<Post />}>
+          <Route path=":postId" element={<PostDetail />} />
+        </Route>
       </Routes>
     </div>
   );
