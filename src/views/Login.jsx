@@ -47,7 +47,12 @@ export const Login = () => {
         </label>
         {errors.password?.message}
       </div>
-      <button onClick={handleSubmit(onSubmit, onError)}>登入</button>
+      <button
+        onClick={handleSubmit(onSubmit, onError)}
+        disabled={Object.keys(errors).length > 0}
+      >
+        登入
+      </button>
     </div>
   );
 };
