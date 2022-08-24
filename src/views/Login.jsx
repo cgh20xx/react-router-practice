@@ -7,12 +7,14 @@ export const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = (data, e) => {
+    console.log('onSubmit');
+    console.log(data, e);
   };
 
   const onError = (errors, e) => {
-    console.log(errors);
+    console.log('onError');
+    console.log(errors, e);
   };
   return (
     <div>
@@ -23,6 +25,10 @@ export const Login = () => {
           <input
             {...register('email', {
               required: { value: true, message: '帳號未填' },
+              pattern: {
+                value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+                message: '請輸入 Email 格式',
+              },
             })}
           />
           {errors.email?.message}
@@ -35,6 +41,7 @@ export const Login = () => {
             type="password"
             {...register('password', {
               required: { value: true, message: '密碼未填' },
+              minLength: { value: 8, message: '密碼至少8碼' },
             })}
           />
         </label>
