@@ -10,6 +10,10 @@ export const Login = () => {
   const onSubmit = (data) => {
     console.log(data);
   };
+
+  const onError = (errors, e) => {
+    console.log(errors);
+  };
   return (
     <div>
       <h1>這是登入頁</h1>
@@ -36,7 +40,7 @@ export const Login = () => {
         </label>
         {errors.password?.message}
       </div>
-      <button onClick={handleSubmit(onSubmit)}>登入</button>
+      <button onClick={handleSubmit(onSubmit, onError)}>登入</button>
     </div>
   );
 };
